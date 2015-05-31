@@ -10,12 +10,13 @@
 
 // subscribe to published player data 
 // do this BEFORE everything else 
-Meteor.subscribe('thePlayers');
+Meteor.subscribe('sessions');
+Meteor.subscribe('entries');
+Meteor.subscribe('activities');
 
-Template.leaderboard.helpers({
-  'player': function () {
-    var currentUserId = Meteor.userId(); 
-    return PlayersList.find({}, {sort: {score: -1, name: 1}}); // sort: sorts list according to value of 'score,' in this case in descending order (specified by -1) - returned list is sorted. 
+Template.chronospect.helpers({
+  'activity': function () {
+    return ActivityList.find({}, {sort: {name: 1}}); // sort: sorts list according to value of 'score,' in this case in descending order (specified by -1) - returned list is sorted. 
       // sorting: first by number, descending; then, (if tied), by name, ascending 
   },
 
@@ -38,7 +39,7 @@ Template.leaderboard.helpers({
 
 });
 
-Template.leaderboard.events({
+Template.chronospect.events({
   'click li.player': function () {
     // Sessions are temporary data not stored in the database.
     // Sessions have two pieces of information: 

@@ -9,19 +9,26 @@
 sessionRecord:
 {
 	_id: 'id',
-	timeStart: 	 new Date('currentTime'), 
-	timeEnd: 	 new Date('currentTime'),
-	entriesList: {[
-		{entry}, {entry}, {entry}
-	]}
+	createdBy: 'userId',
+	timeStart: 	 new Date(), // currentTime 
+	timeEnd: 	 new Date(), // currentTime
 },
 
 entry: {
 	_id: 'id', 
-	time:				 new Date('currentTime'),
+	createdBy: 'userId',
+	parentId: 			 "39efdfls", // primary key of session to which this entry is child
+	time:				 new Date(), // currentTime
 	isActiveObservation: false, // false means passive - not recording intended activity; true means active - we are. 
 	activityIntended: 	 "homework", // null if isActiveObservation false 
 	activityActual: 	 "YouTube", 
 	engagement: 		 1; // scale 1 to 5
 	mood: 				 1; // 1 is terrible, 5 is great - represent with emoticons?  
+}
+
+// should be added to the 'activities' collection 
+activity: {
+	_id: 'id',
+	createdBy: 'userId',
+	name: "Activity"
 }

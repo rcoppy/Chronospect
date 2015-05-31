@@ -12,9 +12,19 @@ Meteor.startup(function () {
   // code to run on server at startup
 });
 
-Meteor.publish('thePlayers', function(){
+Meteor.publish('sessions', function(){
   var currentUserId = this.userId;
-  return PlayersList.find({createdBy: currentUserId})
+  return SessionList.find({createdBy: currentUserId})
+});
+
+Meteor.publish('entries', function(){
+  var currentUserId = this.userId;
+  return EntryList.find({createdBy: currentUserId})
+});
+
+Meteor.publish('activities', function(){
+  var currentUserId = this.userId;
+  return ActivityList.find({createdBy: currentUserId})
 });
 
 // Methods for accessing server functionality 

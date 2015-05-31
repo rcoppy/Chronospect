@@ -1,0 +1,40 @@
+<template name="home"> 
+	<h1>Chronospect</h1> 
+
+	<!-- new session leads to modal--> 
+	<!-- Trigger the modal with a button -->
+	<button type="button" class="btn btn-primary btn-raised btn-lg clickable" data-toggle="modal" data-target="#modal-active-passive-check">New Session</button>
+	
+	<a href="{{ pathFor 'session-list'}}" class="btn btn-default btn-raised btn-lg clickable" id="view-history">History</a>
+
+	{{> modalActivePassiveCheck}}
+
+</template>
+
+
+<template name="modalActivePassiveCheck">
+	<!-- From http://www.w3schools.com/bootstrap/bootstrap_modal.asp --> 
+
+	<!-- Modal -->
+	<div id="modal-active-passive-check" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button> <!-- &times is multiply symbol aka an 'x'--> 
+	        <h4 class="modal-title">What type of session recording?</h4>
+	      </div>
+	      <div class="modal-body">
+	        <a id="settingsActive" class="btn btn-default btn-raised btn-lg clickable">Active</a>
+	        <a id="settingsGeneral" class="btn btn-default btn-raised btn-lg clickable">Passive</a> <!-- make sure to include data-dismiss to ensure modal closes--> 
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default btn-small" >What's the difference?</button> <!-- add a pop-up/tooltip here-->
+	      </div>
+	    </div>
+
+	  </div>
+	</div>
+
+</template>
