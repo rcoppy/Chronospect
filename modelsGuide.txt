@@ -1,0 +1,27 @@
+/* Data models 
+	
+	Two collection types: active, passive
+
+*/ 
+
+
+
+sessionRecord:
+{
+	_id: 'id',
+	timeStart: new Date('currentTime'), 
+	timeEnd: new Date('currentTime')
+	entriesList: {[
+		{entry}, {entry}, {entry}
+	]}
+},
+
+entry: {
+	_id: 'id', 
+	time: new Date('currentTime'),
+	isActiveObservation: false, // false means passive - not recording intended activity; true means active - we are. 
+	activityIntended: "homework", // null if isActiveObservation false 
+	activityActual: "YouTube", 
+	engagement: 1; // scale 1 to 5
+	mood: 1; // 1 is terrible, 5 is great - represent with emoticons?  
+}
