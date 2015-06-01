@@ -1,0 +1,9 @@
+/* styling for settingsActive */
+
+li.activity-selected { 
+	background-color: #fccccc;
+}
+
+a.deleteActivity { 
+	color: red;
+}

@@ -30,6 +30,16 @@ Meteor.publish('activities', function(){
 // Methods for accessing server functionality 
 Meteor.methods({
   // methods go here 
+  'insertNewActivity': function(activity) { 
+    var currentUserId = Meteor.userId(); 
+    if (ActivityList.find({name: activity}).count() < 1) { // check for redundancy 
+      ActivityList.insert({
+        createdBy: currentUserId,
+        name: activity
+      });
+    } 
+  }, 
+
   'insertPlayerData': function(playerNameVar) {
     var currentUserId = Meteor.userId(); 
     PlayersList.insert({

@@ -1,0 +1,51 @@
+<template name="settingsActive"> 
+	
+
+	<h1>Select an activity.</h1> 
+
+	<ul>
+	  	{{#each activity}}
+		 	<li class="activity {{isActivitySelected}}">{{name}}<a href="" class="btn btn-default btn-small deleteActivity" role="button"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a></li>
+	  	{{/each}}
+ 		
+
+		<li id="addActivity" data-toggle="modal" data-target="#modal-add-activity">&plus; New Activity</li> 
+ 		
+ 	</ul>
+
+ 	<!-- need a 'back' button --> 
+
+ 	<a href="{{ pathFor 'home' }}" class="btn btn-default btn-small" role="button">Back</a>
+
+ 	<a href="{{ pathFor 'settingsGeneral' }}" class="btn btn-success btn-small" role="button">OK</a>
+
+ 	{{> newActivityModal}}
+
+</template>
+
+
+<template name="newActivityModal"> 
+	<!-- From http://www.w3schools.com/bootstrap/bootstrap_modal.asp --> 
+
+	<!-- Modal -->
+	<div id="modal-add-activity" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button> <!-- &times is multiply symbol aka an 'x'--> 
+	        <h4 class="modal-title">New Activity</h4>
+	      </div>
+	      <div class="modal-body">
+	        <input id="activityNameTextbox" type="text" name="activityName" required> 
+	      </div>
+	      <div class="modal-footer">
+	        <button id="submitActivity" type="button" class="btn btn-primary btn-normal" data-dismiss="modal">Create</button> <!-- add a pop-up/tooltip here-->
+	      </div>
+	    </div>
+
+	  </div>
+	</div>
+
+</template>
