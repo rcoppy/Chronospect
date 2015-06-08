@@ -10,3 +10,4 @@ accounts-ui
 iron:router
 useraccounts:bootstrap
 twbs:bootstrap
+chart:chart

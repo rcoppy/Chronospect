@@ -1,0 +1,95 @@
+// chart stuff: 
+
+frequency of activities can be shown with a radar chart/histogram
+	or we could use a pie chart? 
+
+engagment of activities and activities being performed shown with line chart 
+
+
+
+
+Alternative to default line chart: 
+Use a scatter plot. 
+http://dima117.github.io/Chart.Scatter/
+
+No hassle about getting labels to line up with data. 
+
+Data labels: 
+
+each dataset is a different activity. 
+x-axis: time
+y-axis: engagement level 
+
+example data: 
+
+var data = [
+    {
+      label: 'Homework',
+      strokeColor: '#F16220',
+      pointColor: '#F16220',
+      pointStrokeColor: '#fff',
+      data: [
+        { x: 0000, y: 5 }, 
+        { x: 0015, y: 4 }, 
+        { x: 0030, y: 3 }, 
+        { x: 0045, y: 2 },
+        { x: 0100, y: 1 }
+      ]
+    },
+    {
+      label: 'Procrastinating',
+      strokeColor: '#007ACC',
+      pointColor: '#007ACC',
+      pointStrokeColor: '#fff',
+      data: [
+        { x: 0115, y: 5 }, 
+        { x: 0130, y: 4 }, 
+        { x: 0145, y: 3 }, 
+        { x: 0200, y: 5 },
+        { x: 0215, y: 3 }
+      ]
+    }
+  ];
+
+
+
+
+-----everything below here is obsolete------
+
+
+have our list of data points for session 
+
+3 activities 
+
+=> 3 data sets
+
+if point is in activity 1, stick in set 1 -- ELSE add null value to set 1
+repeat with set 2, set 3, etc. 
+
+end result: 
+
+[time: 0000
+activity: 1
+engage: 3]
+
+[time: 0015
+activity: 2
+engage: 4]
+
+[time: 0030
+activity: 3
+engage: 1]
+
+Time interval of 15 minutes. 
+
+Graph: 
+
+labels: [0000, 0015, 0030]
+
+dataset1: [3, null, null]
+dataset2: [null, 4, null]
+dataset3: [null, null, 1]
+
+not the best way of doing it, but it's what we've got to work with in chart.js. 
+
+assume all entries have time that falls onto the proper interval. 

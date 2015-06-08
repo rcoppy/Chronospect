@@ -26,8 +26,8 @@
 	        <h4 class="modal-title">What type of session recording?</h4>
 	      </div>
 	      <div class="modal-body">
-	        <a id="settingsActive" class="btn btn-default btn-raised btn-lg clickable">Active</a>
-	        <a id="settingsGeneral" class="btn btn-default btn-raised btn-lg clickable">Passive</a> <!-- make sure to include data-dismiss to ensure modal closes--> 
+	        <a id="settingsActive" class="btn btn-default btn-raised btn-lg clickable" data-dismiss="modal" onclick="switchPageWait('settingsActive');">Active</a>
+	        <a id="settingsGeneral" class="btn btn-default btn-raised btn-lg clickable" data-dismiss="modal" onclick="switchPageWait('settingsGeneral');">Passive</a> <!-- make sure to include data-dismiss to ensure modal closes--> 
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default btn-small" >What's the difference?</button> <!-- add a pop-up/tooltip here-->

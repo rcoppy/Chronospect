@@ -2,15 +2,15 @@
 
 Template.modalActivePassiveCheck.events({
 
-	'click #settingsActive': function() {
+	/*'click #settingsActive': function() {
 		$('#modal-active-passive-check').modal('hide');
-		Router.go('settingsActive'); 
+		switchPageWait('settingsActive');
 	},
 
 	'click #settingsGeneral': function() {
 		$('#modal-active-passive-check').modal('hide');
-		Router.go('settingsGeneral'); 
-	}
+		switchPageWait('settingsGeneral');
+	}*/
 
 	// href attribute was being finnicky with show/hide modal - weird workaround 
 });

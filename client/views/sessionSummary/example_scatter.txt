@@ -1,0 +1,112 @@
+
+
+		Chart.defaults.global.responsive = true;
+		Chart.defaults.global.animation = false;
+
+		$(function () {
+
+			//#region header
+
+			var data = [{ x: 0, y: 0 }];
+
+			for (var x = 1; x < 10; x++) {
+
+				var sq = Math.sqrt(x);
+				data.push({ x: x, y: sq });
+				data.unshift({ x: x, y: -sq });
+			}
+
+			var dataset = {
+				label: 'y = sqrt(x)',
+				strokeColor: 'white',
+				pointStrokeColor: '#4db7ec',
+				data: data
+			}
+
+			var ctx = document.getElementById("header-canvas").getContext("2d");
+			new Chart(ctx).Scatter([dataset], {
+				responsive: true,
+				scaleGridLineColor: "rgba(255,255,255,.3)",
+				scaleLineColor: "rgba(255,255,255,.8)"
+			});
+
+			//#endregion
+
+			var data2 = [
+				{
+					label: 'complex-1',
+					strokeColor: '#F16220',
+					data: [
+						{ x: 19, y: 65 }, { x: 27, y: 59 }, { x: 28, y: 69 }, { x: 40, y: 81 },
+						{ x: 48, y: 56 }, { x: 86, y: 55 }, { x: 90, y: 40 }, { x: 95, y: 60 }
+					]
+				},
+				{
+					label: 'complex-2',
+					strokeColor: '#007ACC',
+					data: [
+						{ x: 19, y: 75 }, { x: 27, y: 69 }, { x: 28, y: 70 }, { x: 40, y: 31 },
+						{ x: 48, y: 76 }, { x: 52, y: 23 }, { x: 24, y: 32 },
+						{ x: 86, y: 45 }, { x: 90, y: 50 }
+					]
+				}
+			];
+
+			var ctx = document.getElementById("myChart").getContext("2d");
+			var myLineChart = new Chart(ctx).Scatter(data2, {
+				bezierCurve: true,
+				showTooltips: true,
+				scaleShowHorizontalLines: true,
+				scaleShowLabels: true,
+				scaleLabel: "<%=value%>°C",
+				scaleArgLabel: "<%=value%>mmm",
+				scaleBeginAtZero: true
+			});
+
+			var data3 = [
+				{
+					label: 'temperature',
+					strokeColor: '#A31515',
+					data: [
+						{
+							x: new Date('2011-04-11T11:45:00'),
+							y: 25
+						},
+						{
+							x: new Date('2011-04-11T12:51:00'),
+							y: 28
+						},
+						{
+							x: new Date('2011-04-11T14:10:00'),
+							y: 22
+						},
+						{
+							x: new Date('2011-04-11T15:15:00'),
+							y: 18
+						},
+						{
+							x: new Date('2011-04-11T17:00:00'),
+							y: 25
+						},
+						{
+							x: new Date('2011-04-11T21:00:00'),
+							y: 24
+						},
+						{
+							x: new Date('2011-04-12T13:00:00'),
+							y: 24
+						}
+					]
+				}];
+
+			var ctx2 = document.getElementById("myChartWithDates").getContext("2d");
+			var myDateLineChart = new Chart(ctx2).Scatter(data3, {
+				bezierCurve: true,
+				showTooltips: true,
+				scaleShowHorizontalLines: true,
+				scaleShowLabels: true,
+				scaleType: "date",
+				scaleLabel: "<%=value%>°C"
+			});
+		});
+	
