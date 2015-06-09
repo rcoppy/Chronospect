@@ -1,3 +1,7 @@
+Template.settingsActive.rendered = function() { 
+	setCSSBodyOffset(); 
+};
+
 Template.settingsActive.helpers({
 	'activity': function () {
 		return ActivityList.find({}, {sort: {name: 1}}); // sort: sorts list according to value of 'score,' in this case in descending order (specified by -1) - returned list is sorted. 

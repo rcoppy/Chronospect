@@ -1,12 +1,29 @@
 <template name="home"> 
 <div class="container">
-	<h1>Chronospect</h1> 
-
-	<!-- new session leads to modal--> 
-	<!-- Trigger the modal with a button -->
-	<button type="button" class="btn btn-primary btn-raised btn-lg clickable" data-toggle="modal" data-target="#modal-active-passive-check">New Session</button>
 	
-	<a href="{{ pathFor 'sessionList'}}" class="btn btn-default btn-raised btn-lg clickable" id="view-history">History</a>
+	<div class="app-header">
+		<h1>Chronospect</h1> 
+	</div>
+
+	<div class="app-body" style="margin-top: 32px;">
+		{{#if currentUser}}	
+			<!-- new session leads to modal--> 
+			<!-- Trigger the modal with a button -->
+			<a class="btn btn-primary btn-raised btn-lg clickable" data-toggle="modal" data-target="#modal-active-passive-check">New Session</a>
+			
+			<a href="{{ pathFor 'sessionList'}}" class="btn btn-default btn-raised btn-lg clickable" id="view-history">History</a>
+			
+		{{else}}
+			<h2>Please sign in to continue.</h2>
+		{{/if}}
+	
+		<h4>Login settings:</h4>
+		{{> loginButtons}}
+	</div>
+
+	<div class="app-footer">
+		<p style="color: #fff; margin-top: 6px; margin-left: 6px;">An app by Alex Rupp-Coppi, made in Meteor. Infinite gratitude is owed to Patrick Kage, Paolo Coppi, and the wonderful people over at stackoverflow. &copy; 2015</p> 
+	</div>
 
 	{{> modalActivePassiveCheck}}
 </div>
@@ -31,7 +48,7 @@
 	        <a id="settingsGeneral" class="btn btn-default btn-raised btn-lg clickable" data-dismiss="modal" onclick="switchPageWait('settingsGeneral'); Session.set('isActiveObservation', false);">Passive</a> <!-- make sure to include data-dismiss to ensure modal closes--> 
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default btn-small" >What's the difference?</button> <!-- add a pop-up/tooltip here-->
+	        <!--<button type="button" class="btn btn-default btn-small" >What's the difference?</button> add a pop-up/tooltip here-->
 	      </div>
 	    </div>
 

@@ -16,6 +16,19 @@ UI.registerHelper('session', function(input) {
 // http://stackoverflow.com/questions/13060608/can-meteor-templates-access-session-variables-directly
 // https://www.discovermeteor.com/blog/spacebars-secrets-exploring-meteor-new-templating-engine/
 
+setCSSBodyOffset = function() { // call this when a template finishes rendering 
+	var header = $('.app-header');
+	var body = $('.app-body');
+	var footer = $('.app-footer');
+
+	console.log("header" + header); 
+
+	body.css("top", header.css("height")); 
+	body.css("margin-bottom", footer.css("height")); 
+	
+	console.log(body.css("top")); 
+	console.log(body.css("height")); 
+}
 
 calculateTimeDiff = function (nowDate, laterDate) { // returns value in milliseconds
 	var now  = nowDate.getTime();

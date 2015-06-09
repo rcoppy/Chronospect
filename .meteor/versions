@@ -1,5 +1,7 @@
 accounts-base@1.2.0-rc.0
 accounts-password@1.1.0-win.1
+accounts-ui@1.1.5-rc.0
+accounts-ui-unstyled@1.1.7-rc.0
 autoupdate@1.2.0-win.0
 base64@1.0.3-rc.0
 binary-heap@1.0.3-rc.0
@@ -9,7 +11,6 @@ boilerplate-generator@1.0.3-rc.0
 callback-hook@1.0.3-rc.0
 chart:chart@1.0.1-beta.4
 check@1.0.5-rc.0
-coffeescript@1.0.6-rc.0
 ddp@1.1.0-rc.1
 deps@1.0.7-rc.0
 ejson@1.0.6-rc.0
@@ -53,7 +54,6 @@ routepolicy@1.0.5-rc.0
 service-configuration@1.0.4-rc.0
 session@1.1.0-rc.0
 sha@1.0.3-rc.0
-softwarerero:accounts-t9n@1.0.9
 spacebars@1.0.6-rc.0
 spacebars-compiler@1.0.5-rc.0
 srp@1.0.3-rc.0
@@ -63,7 +63,5 @@ twbs:bootstrap@3.3.4
 ui@1.0.6-rc.0
 underscore@1.0.3-rc.0
 url@1.0.4-rc.0
-useraccounts:bootstrap@1.11.1
-useraccounts:core@1.11.1
 webapp@1.2.0-rc.1
 webapp-hashing@1.0.3-rc.0

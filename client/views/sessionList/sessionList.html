@@ -1,16 +1,21 @@
 <template name="sessionList"> 
 <div class="container">
-	<h1>Select a past session.</h1> 
+	<div class="app-header"><h1>Select a past session.</h1></div> 
 
-	<ul class="scroll">
-	  	{{#each session}}
-		 	<li class="menu session {{isSessionSelected}}"><span style="font-weight: bold;">{{name}}</span>, <span style="font-style: italic">{{timeStart}}</span><!--<a href="" class="btn btn-default btn-small deleteSession" role="button"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a>--></li>
-	  	{{/each}} 
- 		
- 	</ul>
-
+	<div class="app-body">
+		
+		<ul>
+		  	{{#each session}}
+			 	<li class="menu session {{isSessionSelected}}"><span style="font-weight: bold;">{{name}}</span>, <span style="font-style: italic">{{timeStart}}</span><!--<a href="" class="btn btn-default btn-small deleteSession" role="button"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a>--></li>
+		  	{{/each}} 
+	 		
+	 	</ul>
+	 	
+	</div> 
+	
 	<!-- view and delete buttons? --> 
-
-	{{> btnBack label="Back" path="home"}}
+	<div class="app-footer">
+		{{> btnBack label="Back" path="home"}}
+	</div>
 </div>
 </template>

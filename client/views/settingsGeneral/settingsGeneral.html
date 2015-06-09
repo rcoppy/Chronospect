@@ -1,22 +1,29 @@
 <template name="settingsGeneral"> 
 <div class="container">
-	{{> btnBack label="Back" path="home"}}
+	<div class="app-header">
+		{{> btnBack label="Back" path="home"}}
+	</div>
 
-	{{> intervalsList}}
-
+	<div class="app-body">
+		{{> intervalsList}}
+	</div>
+	
+	<div class="app-footer">
+	</div> 
+		
 	{{> sessionNameModal}}
-
+	
 </div>
 </template>
 
 <template name="intervalsList">
 	
-	<ul class="scroll">
+	<ul>
 	{{#each interval}}
 		{{> intervalIcon}}	
 	{{/each}}
 	</ul>
-
+	
 </template>
 
 <template name="intervalIcon"> 

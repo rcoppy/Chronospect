@@ -50,4 +50,21 @@ ul.inline-scale {
 
 li.scale-degree {
     display: inline;
+    font-size: 1.4em; 
+}
+
+li.scale-degree:active {
+  color: #6DCF27; /* green */ 
+}
+
+li.scale-degree:hover {
+  color: #D8CF27; /* yellow */ 
+}
+
+img:active {
+  background-color: #6DCF27; /* green */ 
+}
+
+img:hover {
+  background-color: #D8CF27; /* green */ 
 }

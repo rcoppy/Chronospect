@@ -1,3 +1,7 @@
+Template.sessionList.rendered = function() { 
+	setCSSBodyOffset(); 
+};
+
 Template.sessionList.helpers({
 	'session': function () {
 		return SessionList.find({}, {sort: {timeStart: -1}}); // sort: sorts list according to value of 'score,' in this case in descending order (specified by -1) - returned list is sorted. 

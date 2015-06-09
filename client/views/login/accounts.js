@@ -1,7 +1,7 @@
 // author: patrick kage
 // (he got the login to work for me) 6/9/15, 3:47 AM
 
-AccountsTemplates.configure({
+/*AccountsTemplates.configure({
         onSubmitHook: function() {
                 console.log('login hook running');
 
@@ -18,3 +18,4 @@ AccountsTemplates.configure({
                 }, 150);
         }
 }); 
+*/

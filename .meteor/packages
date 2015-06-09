@@ -9,5 +9,5 @@ iron:router
 twbs:bootstrap
 chart:chart
 reactive-var
-useraccounts:bootstrap
 accounts-password
+accounts-ui 

@@ -1,4 +1,4 @@
-<!-- Code from Patrick. --> 
+<!-- Code modified from Patrick's source. --> 
 
 <template name="login">
   <div class="center-outer">
@@ -8,7 +8,9 @@
           <div class="panel panel-info">
             <div class="panel-heading"><h2>SIGN IN</h2></div>
             <div class="panel-body">
-              {{> atForm}}  
+              {{> loginButtons}} <!-- looks like crud, but it's all I could get to work. --> 
+              <!-- {{> atForm}} just doesn't work. No idea why. Empty div.-->   
+              {{> loginCheck}}
             </div>
           </div>
         </div>
@@ -18,11 +20,7 @@
 </template>
 
 <template name="loginCheck">
-	{{#if currentUser}}
-		<a href="{{ pathFor 'home' }}" class="btn btn-default btn-lg" role="button">
-  			<span class="glyphicon glyphicon-star" aria-hidden="true"></span>Enter
-		</a>
-		{{else}}
-		<p>Log in to continue.</p>
-	{{/if}}
+	{{#unless currentUser}}
+		<h3>Log in to continue.</h3>
+	{{/unless}}
 </template> 

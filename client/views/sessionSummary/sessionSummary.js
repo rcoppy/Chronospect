@@ -1,6 +1,10 @@
 // JS for session summary (where are all the chart logic is).
 // From documentation at http://www.chartjs.org/docs/
 
+Template.sessionSummary.rendered = function() { 
+  setCSSBodyOffset(); 
+};
+
 Template.sessionSummary.helpers({
   'sessionName': function() {
     return SessionList.findOne({_id: Session.get('selectedSession')}).name; 
@@ -95,7 +99,7 @@ function drawChart(){
 
         // Number - The scale starting value
         scaleStartValue: 0,
-        responsive: true // scale with changes in window size 
+        //responsive: true // scale with changes in window size 
       }); 
   // http://dima117.github.io/Chart.Scatter/
 }

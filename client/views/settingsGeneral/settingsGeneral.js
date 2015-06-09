@@ -1,3 +1,7 @@
+Template.settingsGeneral.rendered = function() { 
+	setCSSBodyOffset(); 
+};
+
 Template.sessionNameModal.events({
 
 	// this doesn't work for some reason - wasted too much time trying to figure it out
@@ -78,6 +82,7 @@ Template.intervalIcon.events({
 		var interval = event.target.dataset.interval; 
 		
 		Session.set('timeInterval', interval);
+		Session.set('dateOfNextQuery', new Date(new Date() + Session.get('timeInterval')*60000)); // date of upcoming query
 		console.log(interval);  
 
 		// popup start recording modal

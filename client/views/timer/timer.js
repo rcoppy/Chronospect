@@ -4,8 +4,15 @@ Meteor.setInterval(function() {
 
  		Session.set('currentDate', new Date());
 
- 		var ms = calculateTimeDiff(Session.get('currentDate'), Session.get('dateOfNextQuery')); 
+ 		var ms; 
 
+ 		if (!Session.get('dateOfNextQuery')) {
+ 			ms = 0; 
+ 		}
+ 		else {
+			ms = calculateTimeDiff(Session.get('currentDate'), Session.get('dateOfNextQuery')); 
+		}
+		
  		if (ms <= 0) { // fire off entry query
  			$('#modal-query').modal('show');
  			Session.set('timeDiffMillSecs', 0); 
@@ -23,6 +30,10 @@ Meteor.setInterval(function() {
 //$('#timerText').hide();
 //$('#timerText').fadeIn(100); //this.chart.get().options.animationSteps); 
 
+Template.timer.rendered = function() { 
+  setCSSBodyOffset(); 
+};
+
 Template.timer.events({ 
 	'click #btn-stop': function() {
 		Session.set('selectedSession', Session.get('currentSession')); // update selectedSession so that chart in next view picks correct data
@@ -33,6 +44,10 @@ Template.timer.helpers({
 
 	'sessionName': function() {
 		return SessionList.findOne({_id: Session.get('currentSession')}).name; 
+	}, 
+
+	'intendedActivityName': function() {
+		return ActivityList.findOne({_id: Session.get('activityIntended')}).name; 
 	}
 });
 
@@ -105,11 +120,11 @@ function drawTimerChart(ms) { // take milliseconds (int)
 	//Get context with jQuery - using jQuery's .get() method.
 	var canvas = $("#timerChart"); 
 
-	//This will get the first returned node in the jQuery collection.
+	//canvas.width = window.innerWidth*0.75;
+    //canvas.height = window.innerWidth*0.75;
+
+    //This will get the first returned node in the jQuery collection.
 	var ctx = canvas.get(0).getContext("2d");
-	
-	canvas.width = window.innerWidth*0.75;
-    canvas.height = window.innerWidth*0.75;
 
 	return new Chart(ctx).Doughnut(data, {
     	animateScale: true,

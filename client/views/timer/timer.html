@@ -7,30 +7,36 @@
 	</a>
 	-->
 
-	<div class="main-body">
-		<!-- name of session --> 
+	
+	<!-- name of session --> 
+	<div class="app-header">
 		<h1>{{sessionName}}</h1>
+	</div> 
 
+	<div class="app-body" style="margin-top: 64px;">
 		<h3>
 			{{#if session "isActiveObservation"}}
-				Active Mode
+				Active Mode<br>
+				<span style="font-style: italic">Intended Activity: </span>{{intendedActivityName}} 
 			{{else}}
 				Passive Mode
 			{{/if}}
 		</h3> 
 
-		<div class="timer-area">
+		<div class="timer-area" style="margin-top: 10px;">
 			<!-- time to next activity -->
 			<!--<h3>Time to next query</h3>-->
 			{{> queryCountdown}}
 		</div>
 	</div>
-	
-	<!-- stop button--> 
-	<button id="btn-stop" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#modal-stop-session" role="button">
-  		Stop <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
-	</button>
 
+	<div class="app-footer">
+		<!-- stop button--> 
+		<button id="btn-stop" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#modal-stop-session" role="button">
+	  		Stop <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+		</button>	
+	</div>
+	
 	{{> pauseSessionModal}}
 	{{> stopSessionModal}}
 	{{> queryModal}}
@@ -92,7 +98,9 @@
 		
 		<!--Actual rendered timer--> 
 		{{chartUpdate}} <!-- updates the chart; kind of hacky --> 
-		<canvas id="timerChart" width="400" height="400"></canvas>
+		<div id="chartContainer"> <!-- resizing chart container resizes canvas; too finnicky; didn't have time to make it work --> 
+			<canvas id="timerChart" width="400px" height="400px"></canvas>
+		</div>
 	</div>
 </template> 
 

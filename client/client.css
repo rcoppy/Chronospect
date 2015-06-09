@@ -1,5 +1,12 @@
 /* CSS declarations go here */
 
+/*html, */
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
 	background-color: #DEFCFF; 
 }
@@ -24,8 +31,45 @@ li.menu:hover {
 	background-color: #A6D5EA; /* slightly less dark, unsaturated blue */ 
 }
 
-ul.scroll {
-	max-height: 75%;
-	overflow: hidden; 
-	overflow-y: scroll;
+div.app-header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 100;
+	background-color: #4B9EBC;
+	border-bottom: #A6D5EA solid 2px;
+	width: 100%;
+}
+
+div.app-footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 100;
+	background-color: #4B9EBC;
+	border-top: #A6D5EA solid 2px;
+	width: 100%;
+}
+
+div.app-body {
+	position: relative;
+	width: 100%;
+}
+
+div.app-body h1, h2, h3, h4, h5, h6, p, a {
+	word-wrap: break-word;
+}
+
+div.app-header a.btn, button {
+	margin: 10px;
+}
+
+div.app-footer a.btn, button { 
+	margin: 10px;
+}
+
+div.app-header h1 {
+	color: #fff;
+	margin-left: 20px;
+	margin-bottom: 20px;
 }

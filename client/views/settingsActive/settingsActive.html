@@ -1,19 +1,25 @@
 <template name="settingsActive"> 
 <div class="container">	
 
-	<h1>Select an activity.</h1> 
+	<div class="app-header"><h1>Select an activity.</h1></div> 
 
-	<ul class="scroll">
-	  	{{#each activity}}
-		 	<li class="menu activity {{isActivitySelected}}">{{name}}<!--<a href="" class="btn btn-default btn-small deleteActivity" role="button"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a>--></li>
-	  	{{/each}}
- 		
+	<div class="app-body">
+		
+		<ul>
+		  	{{#each activity}}
+			 	<li class="menu activity {{isActivitySelected}}">{{name}}<!--<a href="" class="btn btn-default btn-small deleteActivity" role="button"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a>--></li>
+		  	{{/each}}
+	 		
 
-		<li class="menu" id="addActivity" data-toggle="modal" data-target="#modal-add-activity"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Activity</li> 
- 		
- 	</ul>
-
- 	{{> btnBack label="Back" path="home"}}
+			<li class="menu" id="addActivity" data-toggle="modal" data-target="#modal-add-activity"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Activity</li> 
+	 		
+	 	</ul>
+	 	
+	</div>
+	
+ 	<div class="app-footer">
+ 		{{> btnBack label="Back" path="home"}}
+ 	</div>
 
  	{{> newActivityModal}}
 

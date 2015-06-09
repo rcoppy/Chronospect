@@ -1,12 +1,20 @@
 <template name="sessionSummary"> 
 <div class="container">	
-	<h1>Summary of <span style="font-style: italic;">{{sessionName}}</span></h1>
-	<h3 style="font-style: italic;">Engagement over time</h3>
-	<div id="chart-wrapper">
-		{{> chart}}
+	<div class="app-header">
+		<h1>Summary of <span style="font-style: italic;">{{sessionName}}</span></h1>
 	</div>
 
-	{{> btnBack label="OK" path="sessionList"}}
+	<div class="app-body">
+		<h3 style="font-style: italic;">Engagement over time</h3>
+		<h6 style="font-style: italic;">Chart won't render correctly if session only contains one datapoint.</h6>
+		<div id="chart-wrapper">
+			{{> chart}}
+		</div>
+	</div>
+	
+	<div class="app-footer">
+		{{> btnBack label="OK" path="sessionList"}}
+	</div>
 </div>
 </template>
 
