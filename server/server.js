@@ -27,10 +27,6 @@ Meteor.publish('activities', function(){
   return ActivityList.find({createdBy: currentUserId})
 });
 
-Meteor.publish('timeIntervals', function(){
-  return TimeIntervalList.find(); 
-});
-
 // Methods for accessing server functionality 
 Meteor.methods({
   // methods go here 
@@ -57,7 +53,7 @@ Meteor.methods({
 
     var currentUserId = Meteor.userId(); 
    
-    SessionList.insert({
+    return SessionList.insert({
       createdBy: currentUserId,
       timeStart: new Date(), // current date/time
       timeEnd: new Date(), // by default, end when begin - should override later (at end of recording) 
@@ -65,7 +61,7 @@ Meteor.methods({
       name: sessionName // can be null - optional 
     });
 
-    console.log("Added session " + SessionList.find(SessionList.find().count()-1)); 
+    //console.log("Added session " + SessionList.find(SessionList.find().count()-1)); 
      
   }, 
 

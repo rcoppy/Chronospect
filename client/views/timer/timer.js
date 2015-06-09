@@ -25,24 +25,12 @@ Meteor.setInterval(function() {
 
 Template.timer.events({ 
 
-	'click #btn-new-entry': function() { 
-		if (Session.get('currentSession')) { // check to make sure we're recording for a real session
-			var parentId = Session.get('currentSession'); 
-			var isActiveObservation = true; 
-			var activityIntended = ActivityList.find(1)._id; 
-			var activityActual = ActivityList.find(0)._id; 
-			var engagement = 4;  
-			var mood = 5; 
-			Meteor.call('insertNewEntry', parentId, isActiveObservation, activityIntended, activityActual, engagement, mood); 
-		}
-	}
-
 });
 
 Template.timer.helpers({
 
 	'sessionName': function() {
-		return "Placeholder for code that fetches session name."; 
+		return SessionList.findOne({_id: Session.get('currentSession')}).name; 
 	}
 });
 
@@ -123,7 +111,11 @@ function drawTimerChart(ms) { // take milliseconds (int)
 
 	return new Chart(ctx).Doughnut(data, {
     	animateScale: true,
-    	animationEasing: "easeOutExpo"
+    	animationEasing: "easeOutExpo",
+    	legendTemplate: "",
+    	showScale: false,
+    	scaleShowLabels: false,
+    	showTooltips: false
 	});
 
 	// http://dima117.github.io/Chart.Scatter/
@@ -152,7 +144,7 @@ Template.scrollableDropdown.helpers({
 
 Template.queryModal.rendered = function() {
 	$('.view-div').hide();
-	$('#view1').show();  
+	$('#view-first').show();  
 }
 
 Template.procrastinationQuery.events({
@@ -204,6 +196,9 @@ Template.moodForm.events({
 
 		// dismiss the modal, reset the clock
 		$('#modal-query').modal('hide'); 
+
+		$('.view-div').hide();
+		$('#view-first').show(); 
 
 		var d = new Date().getTime(); 
 		Session.set('dateOfNextQuery', new Date(d + Session.get('timeInterval')*60000)); // date of upcoming query

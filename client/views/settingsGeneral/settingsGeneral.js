@@ -28,8 +28,11 @@ Template.sessionNameModal.events({
   				console.log(err);
   			}
   			else {
-				Session.set('currentSession', newSession);	
+				Session.set('currentSession', newSession);
+				console.log(newSession); 
+				console.log("current session: "+Session.get('currentSession'));	
 			}
+
 		});
 
 		// move to timer page 	

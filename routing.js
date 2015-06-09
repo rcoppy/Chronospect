@@ -10,6 +10,6 @@ Router.map(function() {
 	this.route('settingsGeneral'); 
 	this.route('timer');  
 
-	this.route('loading', {path: '/login'}); // loading page will redirect to login page
+	//this.route('loading', {path: '/login'}); // loading page will redirect to login page
 
 }); 

@@ -1,17 +1,15 @@
 <template name="sessionSummary"> 
-	
-	<ul>
-		<li>Summary goes here. Chart?</li> 
-	</ul>
-
-	<a href="{{ pathFor 'home' }}" class="btn btn-info btn-small" role="button">
-  		<span class="glyphicon glyphicon-star" aria-hidden="true"></span> OK
-	</a>
+<div class="container">	
+	<h1>Engagement over time for session {{sessionName}}</h1>
 
 	<div id="chart-wrapper">
 		{{> chart}}
 	</div>
 
+	<a href="{{ pathFor 'sessionList' }}" class="btn btn-info btn-small" role="button">
+  		<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> OK
+	</a>
+</div>
 </template>
 
 <template name="chart"> 

@@ -1,10 +1,10 @@
 <template name="sessionList"> 
-
+<div class="container">
 	<h1>Select a past session.</h1> 
 
 	<ul>
 	  	{{#each session}}
-		 	<li class="session {{isSessionSelected}}">{{timeStart}}<a href="" class="btn btn-default btn-small deleteSession" role="button"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a></li>
+		 	<li class="session {{isSessionSelected}}">{{name}}, {{timeStart}}<a href="" class="btn btn-default btn-small deleteSession" role="button"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a></li>
 	  	{{/each}} 
  		
  	</ul>
@@ -12,4 +12,5 @@
 	<!-- view and delete buttons? --> 
 
 	<a href="" class="btn btn-info btn-large" role="button">View</a> 
+</div>
 </template>

@@ -31,7 +31,7 @@ var d = new Date().getTime();
 Session.set('dateOfNextQuery', new Date(d + Session.get('timeInterval')*60000)); // date of upcoming query
 Session.set('timeDiffMillSecs', 0); // int: difference between currentDate and doNQ milliseconds - updated by Meteor.setInterval in timer.js
 
-Template.chronospect.helpers({
+/*Template.chronospect.helpers({
   'activity': function () {
     return ActivityList.find({}, {sort: {name: 1}}); // sort: sorts list according to value of 'score,' in this case in descending order (specified by -1) - returned list is sorted. 
       // sorting: first by number, descending; then, (if tied), by name, ascending 
@@ -114,3 +114,4 @@ Template.addPlayerForm.events({
 });
 
 
+*/
