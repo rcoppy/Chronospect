@@ -162,10 +162,10 @@
 </template>
 
 <template name="engagementForm">
-	<h4>How engaged are you with {{session "activityActual"}}?</h4> 
+	<h4>How engaged are you with {{activity}}?</h4> 
 	<ul class="inline-scale"> <!-- as in 'on scale of 1 to 5'--> 
 		{{#each scale}}
-			<li class="scale-degree" data-value="{{this}}"><span class="glyphicon glyphicon-unchecked"></span></li>
+			<li class="scale-degree"><span class="glyphicon glyphicon-unchecked" data-value="{{this}}"></span></li>
 		{{/each}}
 	</ul>
 </template>
@@ -174,8 +174,8 @@
 	<h4>How are you feeling?</h4> 
 	<ul class="inline-scale"> <!-- as in 'on scale of 1 to 5'--> 
 		{{#each scale}}
-			<li class="scale-degree" data-value="{{this}}">
-				<img src="/images/smiley_mood_{{this}}.png">
+			<li class="scale-degree">
+				<img src="/images/smiley_mood_{{this}}.png" data-value="{{this}}">
 			</li>
 		{{/each}}
 	</ul>

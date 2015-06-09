@@ -182,11 +182,16 @@ Template.engagementForm.events({
 }); 
 
 Template.engagementForm.helpers({
-	'scale': [1,2,3,4,5]
+	'scale': [1,2,3,4,5],
+
+	'activity': function() {
+		return ActivityList.findOne(Session.get('activityActual')).name;
+	}
 }); 
 
 Template.moodForm.events({
 	'click li.scale-degree': function(event, target) {
+		console.log(event.target); 
 		Session.set('mood', event.target.dataset.value);
 		
 		// finally make the actual entry insertion. 
