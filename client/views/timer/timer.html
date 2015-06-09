@@ -1,11 +1,6 @@
 <template name="timer"> 
 <div class="container">	
 	
-	<!-- stop button--> 
-	<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-stop-session" role="button">
-  		<span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
-	</button>
-
 	<!-- Pause button. Not functional.
 	<a href="" data-toggle="modal" data-target="#modal-pause-session" role="button"> 
 		<span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
@@ -26,11 +21,16 @@
 
 		<div class="timer-area">
 			<!-- time to next activity -->
-			<h3>Time to next query</h3>
+			<!--<h3>Time to next query</h3>-->
 			{{> queryCountdown}}
 		</div>
 	</div>
 	
+	<!-- stop button--> 
+	<button id="btn-stop" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#modal-stop-session" role="button">
+  		Stop <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+	</button>
+
 	{{> pauseSessionModal}}
 	{{> stopSessionModal}}
 	{{> queryModal}}
@@ -88,7 +88,7 @@
 <!-- rendering of countdown timer -->
 <template name="queryCountdown">
 	<div id="container">
-		<span id="timerText"><h1>{{timeRemaining}}</h1></span>
+		<span id="timerText"><h1 id="count">{{timeRemaining}}</h1><h5 id="caption" style="font-style: italic;">Time to next query</h5></span>
 		
 		<!--Actual rendered timer--> 
 		{{chartUpdate}} <!-- updates the chart; kind of hacky --> 

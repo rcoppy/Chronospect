@@ -1,8 +1,6 @@
 <template name="settingsGeneral"> 
 <div class="container">
-	<a href="{{ pathFor 'home' }}" class="btn btn-default btn-lg" role="button">
-  		<span class="glyphicon glyphicon-star" aria-hidden="true"></span> Next
-	</a>
+	{{> btnBack label="Back" path="home"}}
 
 	{{> intervalsList}}
 
@@ -13,7 +11,7 @@
 
 <template name="intervalsList">
 	
-	<ul>
+	<ul class="scroll">
 	{{#each interval}}
 		{{> intervalIcon}}	
 	{{/each}}
@@ -25,7 +23,7 @@
 	<!-- use a Chart.js pie chart to represent an interval length-->
 	<!-- width of 20% of screen width - can fit 3 on one panel, margin of 10% between each -->   
 	
-	<li data-interval="{{this}}">{{this}} minutes</li>
+	<li class="menu" data-interval="{{this}}">{{this}} minutes</li>
 
 	<!--<canvas id="myChart" width="20%"></canvas>--> 
 </template>

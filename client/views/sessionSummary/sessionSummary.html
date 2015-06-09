@@ -1,14 +1,12 @@
 <template name="sessionSummary"> 
 <div class="container">	
-	<h1>Engagement over time for session {{sessionName}}</h1>
-
+	<h1>Summary of <span style="font-style: italic;">{{sessionName}}</span></h1>
+	<h3 style="font-style: italic;">Engagement over time</h3>
 	<div id="chart-wrapper">
 		{{> chart}}
 	</div>
 
-	<a href="{{ pathFor 'sessionList' }}" class="btn btn-info btn-small" role="button">
-  		<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> OK
-	</a>
+	{{> btnBack label="OK" path="sessionList"}}
 </div>
 </template>
 

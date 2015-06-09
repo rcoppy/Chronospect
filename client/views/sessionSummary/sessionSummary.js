@@ -79,6 +79,8 @@ function drawChart(){
   var ctx = $("#myChart").get(0).getContext("2d");
   //This will get the first returned node in the jQuery collection.
   
+  
+
   return new Chart(ctx).Scatter(getChartData(), {
         bezierCurve: true,
         showTooltips: true,
@@ -92,7 +94,8 @@ function drawChart(){
         scaleStepWidth: 1,
 
         // Number - The scale starting value
-        scaleStartValue: 0
+        scaleStartValue: 0,
+        responsive: true // scale with changes in window size 
       }); 
   // http://dima117.github.io/Chart.Scatter/
 }

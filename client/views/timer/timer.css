@@ -6,8 +6,8 @@
 
 
 #container {
-  height: 400px;
   width: 400px;
+  height: 400px;
   position: relative;
 }
 
@@ -16,6 +16,8 @@
   position: absolute;
   left: 0;
   top: 0;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 #timerText {
@@ -31,6 +33,14 @@
 http://stackoverflow.com/questions/8708945/how-to-position-text-over-an-image-in-css
 http://stackoverflow.com/questions/5703552/css-center-text-horizontal-and-vertical-inside-a-div-block
 */
+
+#count {
+  text-align: center;
+}
+
+#caption {
+  text-align: center;
+}
 
 ul.inline-scale {
     list-style-type: none;

@@ -8,6 +8,10 @@
 
 */
 
+// set body width/height in relation to window 
+//$('body').style.width = window.width;
+//$('body').style.height = window.height;
+
 // subscribe to published player data 
 // do this BEFORE everything else 
 Meteor.subscribe('sessions');

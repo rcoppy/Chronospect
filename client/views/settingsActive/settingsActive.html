@@ -3,21 +3,17 @@
 
 	<h1>Select an activity.</h1> 
 
-	<ul>
+	<ul class="scroll">
 	  	{{#each activity}}
-		 	<li class="activity {{isActivitySelected}}">{{name}}<a href="" class="btn btn-default btn-small deleteActivity" role="button"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a></li>
+		 	<li class="menu activity {{isActivitySelected}}">{{name}}<!--<a href="" class="btn btn-default btn-small deleteActivity" role="button"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a>--></li>
 	  	{{/each}}
  		
 
-		<li id="addActivity" data-toggle="modal" data-target="#modal-add-activity">&plus; New Activity</li> 
+		<li class="menu" id="addActivity" data-toggle="modal" data-target="#modal-add-activity"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Activity</li> 
  		
  	</ul>
 
- 	<!-- need a 'back' button --> 
-
- 	<a href="{{ pathFor 'home' }}" class="btn btn-default btn-small" role="button">Back</a>
-
- 	<a id="btn-ok" href="{{ pathFor 'settingsGeneral' }}" class="btn btn-success btn-small" role="button">OK</a>
+ 	{{> btnBack label="Back" path="home"}}
 
  	{{> newActivityModal}}
 
@@ -39,10 +35,16 @@
 	        <h4 class="modal-title">New Activity</h4>
 	      </div>
 	      <div class="modal-body">
-	        <input id="activityNameTextbox" type="text" name="activityName" required> 
+	        <form id="form-set-session-name">
+	        	<input id="activityNameTextbox" type="text" name="activityName" required> 
+	      		<button id="btn-create-activity" type="submit" name="submit" class="btn btn-success btn-lg" role="button" data-dismiss="modal"> 
+					Create activity
+					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+				</button>
+			</form>
 	      </div>
 	      <div class="modal-footer">
-	        <button id="submitActivity" type="button" class="btn btn-primary btn-normal" data-dismiss="modal">Create</button> <!-- add a pop-up/tooltip here-->
+	        
 	      </div>
 	    </div>
 
@@ -50,3 +52,4 @@
 	</div>
 
 </template>
+

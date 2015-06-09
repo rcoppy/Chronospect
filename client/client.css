@@ -1,5 +1,31 @@
 /* CSS declarations go here */
 
+body {
+	background-color: #DEFCFF; 
+}
+
 .selected { 
 	background-color: #ccc;
+}
+
+li.menu {
+	position: relative;
+	list-style: none;
+	padding: 15px;
+	border-bottom: #A6D5EA solid 1px;
+	font-size: 1.6em; 
+}
+
+li.menu:active {
+	background-color: #74C1E5; /* dark, unsaturated blue */ 
+}
+
+li.menu:hover {
+	background-color: #A6D5EA; /* slightly less dark, unsaturated blue */ 
+}
+
+ul.scroll {
+	max-height: 75%;
+	overflow: hidden; 
+	overflow-y: scroll;
 }

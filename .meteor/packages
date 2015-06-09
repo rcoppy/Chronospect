@@ -5,10 +5,9 @@
 # but you can also edit it by hand.
 
 meteor-platform
-accounts-password
-accounts-ui
 iron:router
-useraccounts:bootstrap
 twbs:bootstrap
 chart:chart
 reactive-var
+useraccounts:bootstrap
+accounts-password

@@ -2,15 +2,15 @@
 <div class="container">
 	<h1>Select a past session.</h1> 
 
-	<ul>
+	<ul class="scroll">
 	  	{{#each session}}
-		 	<li class="session {{isSessionSelected}}">{{name}}, {{timeStart}}<a href="" class="btn btn-default btn-small deleteSession" role="button"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a></li>
+		 	<li class="menu session {{isSessionSelected}}"><span style="font-weight: bold;">{{name}}</span>, <span style="font-style: italic">{{timeStart}}</span><!--<a href="" class="btn btn-default btn-small deleteSession" role="button"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a>--></li>
 	  	{{/each}} 
  		
  	</ul>
 
 	<!-- view and delete buttons? --> 
 
-	<a href="" class="btn btn-info btn-large" role="button">View</a> 
+	{{> btnBack label="Back" path="home"}}
 </div>
 </template>

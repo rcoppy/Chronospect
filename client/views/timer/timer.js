@@ -24,7 +24,9 @@ Meteor.setInterval(function() {
 //$('#timerText').fadeIn(100); //this.chart.get().options.animationSteps); 
 
 Template.timer.events({ 
-
+	'click #btn-stop': function() {
+		Session.set('selectedSession', Session.get('currentSession')); // update selectedSession so that chart in next view picks correct data
+	}
 });
 
 Template.timer.helpers({

@@ -19,20 +19,23 @@ Template.settingsActive.events({
 
 	'click li.activity': function(event, template) {
 		var activityId = this._id; 
-		Session.set('selectedActivity', activityId); 
+		Session.set('selectedActivity', activityId);
+		Session.set('activityIntended', Session.get('selectedActivity'));
+		console.log("Activity set to "+Session.get('activityIntended'));  
+
+		Router.go('settingsGeneral');
 	},
 
-	'click #submitActivity': function() { 
+	'click #btn-create-activity': function() { 
+		event.preventDefault(); 
+
 		var activityName = $('#activityNameTextbox').val(); 
+
+		// reset input field
+	    $('#activityNameTextbox').val(''); 
 
 		Meteor.call('insertNewActivity', activityName); 
 		console.log(activityName); 
-	},
-
-	'click #btn-ok': function() { 
-		// finalize activity selection before moving on 
-		Session.set('activityIntended', Session.get('selectedActivity'));
-		console.log("Activity set to "+Session.get('activityIntended')); 
 	}
 
 }); 
