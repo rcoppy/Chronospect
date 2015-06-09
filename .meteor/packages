@@ -11,3 +11,4 @@ iron:router
 useraccounts:bootstrap
 twbs:bootstrap
 chart:chart
+reactive-var

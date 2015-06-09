@@ -1,13 +1,15 @@
 <template name="sessionList"> 
-	<a href="{{ pathFor 'home' }}" class="btn btn-default btn-small" role="button">
-  		<span class="glyphicon glyphicon-star" aria-hidden="true"></span> Back
-	</a>
+
+	<h1>Select a past session.</h1> 
 
 	<ul>
-		<li>List of past sessions here.</li>
-	</ul> 
+	  	{{#each session}}
+		 	<li class="session {{isSessionSelected}}">{{timeStart}}<a href="" class="btn btn-default btn-small deleteSession" role="button"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a></li>
+	  	{{/each}} 
+ 		
+ 	</ul>
 
 	<!-- view and delete buttons? --> 
 
-	<a href="{{ pathFor 'sessionSummary' }}" class="btn btn-info btn-large" role="button">View</a> 
+	<a href="" class="btn btn-info btn-large" role="button">View</a> 
 </template>

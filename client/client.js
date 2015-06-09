@@ -13,6 +13,23 @@
 Meteor.subscribe('sessions');
 Meteor.subscribe('entries');
 Meteor.subscribe('activities');
+Meteor.subscribe('timeIntervals'); 
+
+// init session vars
+Session.set('isActiveObservation', false);   
+Session.set('activityIntended', null);
+Session.set('activityActual', null); 
+Session.set('engagement', 5); 
+Session.set('mood', 5); 
+Session.set('timeInterval', 0.1); 
+
+// other vars used during recording
+Session.set('currentSession', null); // gets set to something real at beginning of recording session - see settingsGeneral  
+
+var d = new Date().getTime(); 
+
+Session.set('dateOfNextQuery', new Date(d + Session.get('timeInterval')*60000)); // date of upcoming query
+Session.set('timeDiffMillSecs', 0); // int: difference between currentDate and doNQ milliseconds - updated by Meteor.setInterval in timer.js
 
 Template.chronospect.helpers({
   'activity': function () {

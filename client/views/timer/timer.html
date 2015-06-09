@@ -11,8 +11,32 @@
 		<span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
 	</a>
 
+	<a id="btn-new-entry" href="" role="button"> 
+		New entry
+	</a>
+
+	<div class="main-body">
+		<!-- name of session --> 
+		<h1>{{sessionName}}</h1>
+
+		<h3>
+			{{#if session "isActiveObservation"}}
+				Active Mode
+			{{else}}
+				Passive Mode
+			{{/if}}
+		</h3> 
+
+		<div class="timer-area">
+			<!-- time to next activity -->
+			<h3>Time to next query</h3>
+			{{> queryCountdown}}
+		</div>
+	</div>
+	
 	{{> pauseSessionModal}}
 	{{> stopSessionModal}}
+	{{> queryModal}}
 
 </template>
 
@@ -62,3 +86,100 @@
 	</div>
 
 </template>
+
+<!-- rendering of countdown timer -->
+<template name="queryCountdown">
+	<div id="container">
+		<span id="timerText"><h1>{{timeRemaining}}</h1></span>
+		
+		<!--Actual rendered timer--> 
+		{{chartUpdate}} <!-- updates the chart; kind of hacky --> 
+		<canvas id="timerChart" width="400" height="400"></canvas>
+	</div>
+</template> 
+
+<template name="queryModal"> 
+
+	<!-- Modal -->
+	<div id="modal-query" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h4 class="modal-title">Activity Query</h4>
+	      </div>
+	      <div class="modal-body">
+	        <div id="view1" class="view-div">
+	        	{{#if session "isActiveObservation"}}
+	        		{{> procrastinationQuery}}
+	        	{{else}}
+	        		{{> activityQuery}}
+	        	{{/if}}
+	        </div>
+	        <div id="view-engagement" class="view-div">
+	        	{{> engagementForm}}
+	        </div>
+	        <div id="view-mood" class="view-div">
+				{{> moodForm}}
+	        </div>
+	        <div id="view-actual-activity" class="view-div"> 
+	        	{{> activityQuery}}
+	        </div>
+	        <button class="btn btn-default btn-lg" data-dismiss="modal" onclick="switchPageWait('sessionSummary');">Yes</button>  <!-- needs to be a link--> 
+	        <button class="btn btn-primary btn-lg" data-dismiss="modal">No</button>  
+	      </div>
+	      <div class="modal-footer">
+	      </div>
+	    </div>
+
+	  </div>
+	</div>
+</template>
+
+<template name="procrastinationQuery"> 
+	<h4>Are you {{intendedActivity}}?</h4>
+	<button id="btn-working-yes" class="btn btn-primary btn-lg">Yes</button>  
+	<button id="btn-working-no" class="btn btn-warning btn-lg">No</button> 
+</template>
+
+<template name="activityQuery"> 
+	<h4>What are you doing right now?</h4>
+	{{> scrollableDropdown}}
+</template>
+
+<template name="scrollableDropdown"> 
+	<!--<h2 class="bold">Scrollable Menu</h2>-->
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Activity <span class="caret"></span></button>
+        <ul class="dropdown-menu scrollable-menu" role="menu">
+            {{#each activity}}
+		 		<li><a href="#">{{name}}</a></li>
+	  		{{/each}}
+        </ul>
+    </div>
+    <!--http://www.bootply.com/Nqcxly5Ngf#-->
+</template>
+
+<template name="engagementForm">
+	<h4>How engaged are you with {{session "activityActual"}}?</h4> 
+	<ul class="inline-scale"> <!-- as in 'on scale of 1 to 5'--> 
+		{{#each scale}}
+			<li class="scale-degree" data-value="{{this}}"><span class="glyphicon glyphicon-unchecked"></span></li>
+		{{/each}}
+	</ul>
+</template>
+
+<template name="moodForm">
+	<h4>How are you feeling?</h4> 
+	<ul class="inline-scale"> <!-- as in 'on scale of 1 to 5'--> 
+		{{#each scale}}
+			<li class="scale-degree" data-value="{{this}}">
+				<img src="/images/smiley_mood_{{this}}.png">
+			</li>
+		{{/each}}
+	</ul>
+	<!-- smiley face images from http://possibilitiesforlearning.com/wp-content/uploads/2013/01/Smiley-Face-rating-scale1.png --> 
+	<!--http://stackoverflow.com/questions/21341291/how-to-serve-static-content-images-fonts-etc-using-iron-router-->
+</template>
+

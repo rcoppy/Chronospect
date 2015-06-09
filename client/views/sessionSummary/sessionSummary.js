@@ -28,7 +28,7 @@ chartData = {
 
 function drawChart(){
   
-  var data = [
+/*  var data = [
     {
       label: 'Homework',
       //fillColor : "rgba(220,220,220,0.5)",
@@ -80,7 +80,7 @@ function drawChart(){
 
         // Number - The scale starting value
         scaleStartValue: 0
-      });
+      }); */
 }
 
 

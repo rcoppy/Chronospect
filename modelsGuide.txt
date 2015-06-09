@@ -12,6 +12,8 @@ sessionRecord:
 	createdBy: 'userId',
 	timeStart: 	 new Date(), // currentTime 
 	timeEnd: 	 new Date(), // currentTime
+	timeInterval: 15, // int - minutes - convert to millsecs at some point; time interval between queries 
+	name: 	"optional"
 },
 
 entry: {
@@ -32,3 +34,9 @@ activity: {
 	createdBy: 'userId',
 	name: "Activity"
 }
+
+
+To clarify: 
+
+selectedSession - used in reference to already recorded sessions. (Looking at session summaries.)
+currentSession - session that is CURRENTLY BEING RECORDED. (Set by settings, used by timer.)

@@ -16,6 +16,12 @@ Template.settingsActive.helpers({
 }); 
 
 Template.settingsActive.events({
+
+	'click li.activity': function(event, template) {
+		var activityId = this._id; 
+		Session.set('selectedActivity', activityId); 
+	},
+
 	'click #submitActivity': function() { 
 		var activityName = $('#activityNameTextbox').val(); 
 
@@ -23,10 +29,10 @@ Template.settingsActive.events({
 		console.log(activityName); 
 	},
 
-	'click li.activity': function(event, template) {
-		var activityId = this._id; 
-		template.find
-		Session.set('selectedActivity', activityId); 
+	'click #btn-ok': function() { 
+		// finalize activity selection before moving on 
+		Session.set('activityIntended', Session.get('selectedActivity'));
+		console.log("Activity set to "+Session.get('activityIntended')); 
 	}
 
 }); 
